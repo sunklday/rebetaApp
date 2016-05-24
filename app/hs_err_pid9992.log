@@ -1,0 +1,120 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (malloc) failed to allocate 32744 bytes for ChunkPool::allocate
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (allocation.cpp:211), pid=9992, tid=10272
+#
+# JRE version: Java(TM) SE Runtime Environment (7.0_79-b15) (build 1.7.0_79-b15)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (24.79-b02 mixed mode windows-amd64 compressed oops)
+# Failed to write core dump. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000008589800):  JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=10272, stack(0x0000000009a50000,0x0000000009b50000)]
+
+Stack: [0x0000000009a50000,0x0000000009b50000]
+[error occurred during error reporting (printing stack bounds), id 0xc0000005]
+
+
+[error occurred during error reporting (printing native stack), id 0xc0000005]
+
+
+Current CompileTask:
+C2:    136    6             java.lang.String::replace (127 bytes)
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x0000000009da9000 JavaThread "Service Thread" daemon [_thread_blocked, id=7304, stack(0x000000000a1d0000,0x000000000a2d0000)]
+  0x000000000858c000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=6352, stack(0x0000000009ca0000,0x0000000009da0000)]
+=>0x0000000008589800 JavaThread "C2 CompilerThread0" daemon [_thread_in_native, id=10272, stack(0x0000000009a50000,0x0000000009b50000)]
+  0x0000000008588800 JavaThread "Attach Listener" daemon [_thread_blocked, id=6672, stack(0x0000000009610000,0x0000000009710000)]
+  0x0000000008587800 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=11032, stack(0x0000000009950000,0x0000000009a50000)]
+  0x000000000850f000 JavaThread "Finalizer" daemon [_thread_blocked, id=7356, stack(0x0000000005cd0000,0x0000000005dd0000)]
+  0x000000000850d800 JavaThread "Reference Handler" daemon [_thread_blocked, id=9720, stack(0x0000000009750000,0x0000000009850000)]
+  0x00000000020fe000 JavaThread "main" [_thread_in_Java, id=5136, stack(0x00000000022c0000,0x00000000023c0000)]
+
+Other Threads:
+  0x000000000850a000 VMThread [stack: 0x0000000009510000,0x0000000009610000] [id=6420]
+  0x0000000009db3000 WatcherThread [stack: 0x0000000009b70000,0x0000000009c70000] [id=8868]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ PSYoungGen      total 38400K, used 2668K [0x00000000eaa80000, 0x00000000ed500000, 0x0000000100000000)
+  eden space 33280K, 8% used [0x00000000eaa80000,0x00000000ead1b3b8,0x00000000ecb00000)
+  from space 5120K, 0% used [0x00000000ed000000,0x00000000ed000000,0x00000000ed500000)
+  to   space 5120K, 0% used [0x00000000ecb00000,0x00000000ecb00000,0x00000000ed000000)
+ ParOldGen       total 86016K, used 0K [0x00000000c0000000, 0x00000000c5400000, 0x00000000eaa80000)
+  object space 86016K, 0% used [0x00000000c0000000,0x00000000c0000000,0x00000000c5400000)
+ PSPermGen       total 21504K, used 3430K [0x00000000bae00000, 0x00000000bc300000, 0x00000000c0000000)
+  object space 21504K, 15% used [0x00000000bae00000,0x00000000bb159af8,0x00000000bc300000)
+
+Card table byte_map: [0x00000000053c0000,0x00000000055f0000] byte_map_base: 0x0000000004de9000
+
+Polling page: 0x0000000000210000
+
+Code Cache  [0x00000000023c0000, 0x0000000002630000, 0x00000000053c0000)
+ total_blobs=199 nmethods=5 adapters=147 free_code_cache=48758Kb largest_free_block=49916736
+
+Compilation events (10 events):
+Event: 0.094 Thread 0x0000000008589800 nmethod 1 0x0000000002420150 code [0x0000000002420280, 0x0000000002420318]
+Event: 0.099 Thread 0x000000000858c000    2             sun.misc.ASCIICaseInsensitiveComparator::compare (126 bytes)
+Event: 0.102 Thread 0x000000000858c000 nmethod 2 0x0000000002423390 code [0x00000000024234e0, 0x0000000002423858]
+Event: 0.105 Thread 0x0000000008589800    3             java.lang.String::indexOf (70 bytes)
+Event: 0.107 Thread 0x0000000008589800 nmethod 3 0x0000000002422b90 code [0x0000000002422ce0, 0x0000000002422e68]
+Event: 0.114 Thread 0x0000000008589800    4             java.lang.String::hashCode (55 bytes)
+Event: 0.115 Thread 0x0000000008589800 nmethod 4 0x0000000002422850 code [0x0000000002422980, 0x0000000002422ad8]
+Event: 0.116 Thread 0x000000000858c000    5             java.lang.String::lastIndexOf (52 bytes)
+Event: 0.118 Thread 0x000000000858c000 nmethod 5 0x0000000002422490 code [0x00000000024225e0, 0x0000000002422748]
+Event: 0.132 Thread 0x0000000008589800    6             java.lang.String::replace (127 bytes)
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (10 events):
+Event: 0.131 Thread 0x00000000020fe000 Threw 0x00000000eac57420 at C:\re\jdk7u79\2331\hotspot\src\share\vm\prims\jvm.cpp:1304
+Event: 0.132 Thread 0x00000000020fe000 Threw 0x00000000eac59fa0 at C:\re\jdk7u79\2331\hotspot\src\share\vm\prims\jvm.cpp:1304
+Event: 0.132 Thread 0x00000000020fe000 Threw 0x00000000eac5d508 at C:\re\jdk7u79\2331\hotspot\src\share\vm\prims\jvm.cpp:1304
+Event: 0.132 Thread 0x00000000020fe000 Threw 0x00000000eac60838 at C:\re\jdk7u79\2331\hotspot\src\share\vm\prims\jvm.cpp:1304
+Event: 0.132 Thread 0x00000000020fe000 Threw 0x00000000eac63398 at C:\re\jdk7u79\2331\hotspot\src\share\vm\prims\jvm.cpp:1304
+Event: 0.133 Thread 0x00000000020fe000 Threw 0x00000000eac659b8 at C:\re\jdk7u79\2331\hotspot\src\share\vm\prims\jvm.cpp:1304
+Event: 0.134 Thread 0x00000000020fe000 Threw 0x00000000eac71f80 at C:\re\jdk7u79\2331\hotspot\src\share\vm\prims\jvm.cpp:1304
+Event: 0.134 Thread 0x00000000020fe000 Threw 0x00000000eac77e30 at C:\re\jdk7u79\2331\hotspot\src\share\vm\prims\jvm.cpp:1304
+Event: 0.135 Thread 0x00000000020fe000 Threw 0x00000000eac7d9e8 at C:\re\jdk7u79\2331\hotspot\src\share\vm\prims\jvm.cpp:1304
+Event: 0.135 Thread 0x00000000020fe000 Threw 0x00000000eac80b00 at C:\re\jdk7u79\2331\hotspot\src\share\vm\prims\jvm.cpp:1304
+
+Events (10 events):
+Event: 0.134 loading class 0x0000000009eb99a0
+Event: 0.134 loading class 0x0000000009eb99a0 done
+Event: 0.134 loading class 0x000000000201e370
+Event: 0.134 loading class 0x000000000201e370 done
+Event: 0.134 loading class 0x000000000201e050
+Event: 0.134 loading class 0x000000000201e050 done
+Event: 0.135 loading class 0x0000000009eb7920
+Event: 0.135 loading class 0x0000000009eb7920 done
+Event: 0.135 loading class 0x0000000009eb9b60
+Event: 0.135 loading class 0x0000000009eb9b60 done
+
+
+Dynamic libraries:
